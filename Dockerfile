@@ -1,7 +1,7 @@
 FROM llm_image:latest
 RUN mkdir -p /contenerized-retrieval
-VOLUME "/output_folder"
-ENV DATA_DIR=/output_folder
+VOLUME "/outputs"
+ENV DATA_DIR=/outputs
 WORKDIR /contenerized-retrieval
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt

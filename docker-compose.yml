@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes: &volumes
-      - ./output_folder:/output_folder
+      - ./outputs:/outputs
     hostname: mpnet
     deploy:
       resources:
