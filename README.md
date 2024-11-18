@@ -27,8 +27,6 @@ The **SciFact** dataset is used. The retrieval system is evaluated based on how 
 - **Model**: The default model used for generating embeddings is `all-mpnet-base-v2`. You can change the model by setting the `MODEL` environment variable.
 - **Embeddings**: The embeddings are generated using the SentenceTransformer library and are normalized with FAISS for efficient similarity search.
 - **Indexing**: FAISS is used for indexing the embeddings, and cosine similarity is used for retrieval.
+- **Metrics**: The Rank@N metric is used to evaluate the results, that is the percentage of instances where the correct document is retrieved within the top N results.
 
-## Metrics
-
-The Rank@N metric is used to evaluate the results, that is the percentage of instances where the correct document is retrieved within the top N results.
 
