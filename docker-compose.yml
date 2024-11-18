@@ -1,0 +1,32 @@
+services:
+  experiment-mpnet:
+    build: &experiment_build
+      context: .
+      dockerfile: Dockerfile
+    volumes: &volumes
+      - ./output_folder:/output_folder
+    hostname: mpnet
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+              device_ids: [ "1" ]
+    environment:
+      DATA_OWNER: &owner 1124:1124
+      MODEL: all-mpnet-base-v2
+
+  experiment-distilroberta:
+    build: *experiment_build
+    volumes: *volumes
+    hostname: distilroberta
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+              device_ids: [ "3" ]
+    environment:
+      DATA_OWNER: *owner
+      MODEL: all-distilroberta-v1
+  
